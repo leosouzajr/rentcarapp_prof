@@ -20,13 +20,13 @@ class _TelaHomeState extends State<TelaHome> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        leading: Icon(Icons.home),
+        //  leading: Icon(Icons.home),
         //centerTitle: true,
         //title: Text("home"),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.grey[200],
         actions: [
           IconButton(
-            iconSize: 20,
+            iconSize: 40,
             icon: Icon(Icons.account_circle_rounded),
             onPressed: () {
               _abrirTelaEditarUsuario(context);
@@ -41,7 +41,7 @@ class _TelaHomeState extends State<TelaHome> {
           children: [
             BuildTextFieldCustom(
                 controlador: controlerPesquisaCarro,
-                dica: "digite seu nome",
+                dica: "procure por marca, modelo...",
                 isPesquisa: true,
                 semIcone: true),
             //   _buildTextField(controlerPesquisaCarro, "digite seu nome"),
@@ -52,29 +52,45 @@ class _TelaHomeState extends State<TelaHome> {
             ),
             _buildImagem(),
             _buildTitulo("Últimos alugueis"),
-            Card(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Icon(
-                    Icons.person,
-                    size: 80,
-                  ),
-                  Text("João das Neves"),
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text("Ford fiesta 2023"),
-                          Icon(Icons.search)
-                        ],
-                      ),
-                      Text("Devolucao em: 3 dias"),
-                    ],
-                  )
-                ],
-              ),
+            _buildCardUltimosAlugueis(
+                "João das Neves", "Ford fiesta 2023", "3 dias"),
+            _buildCardUltimosAlugueis("Rafael Campos", "Corola 2024", "2 dias"),
+            _buildCardUltimosAlugueis(
+                "João das Neves", "Ford fiesta 2023", "3 dias"),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCardUltimosAlugueis(
+      String cliente, String carro, String diasRestantes) {
+    return Card(
+      color: Colors.white,
+      elevation: 1,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  Icons.person,
+                  size: 80,
+                ),
+                Text(cliente),
+              ],
             ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Row(
+                  children: [Text(carro), Icon(Icons.search)],
+                ),
+                Text("Devolucao em: ${diasRestantes}"),
+              ],
+            )
           ],
         ),
       ),
@@ -84,9 +100,9 @@ class _TelaHomeState extends State<TelaHome> {
   Center _buildImagem() {
     return Center(
       child: Container(
-        width: 400,
+        width: 370,
         child: Image.asset(
-          "assets/images/ano.jpg",
+          "assets/images/fiat-mobi.jpg",
           fit: BoxFit.cover,
         ),
       ),
