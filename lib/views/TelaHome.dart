@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:rentcarapp_prof/testes/widgets/BuildTextFieldCustom.dart';
+import 'package:rentcarapp_prof/views/TelaEdicaoUsuario.dart';
 
 class TelaHome extends StatefulWidget {
   const TelaHome({super.key});
@@ -26,7 +28,9 @@ class _TelaHomeState extends State<TelaHome> {
           IconButton(
             iconSize: 20,
             icon: Icon(Icons.account_circle_rounded),
-            onPressed: () {},
+            onPressed: () {
+              _abrirTelaEditarUsuario(context);
+            },
           )
         ],
       ),
@@ -35,7 +39,12 @@ class _TelaHomeState extends State<TelaHome> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildTextField(controlerPesquisaCarro, "digite seu nome"),
+            BuildTextFieldCustom(
+                controlador: controlerPesquisaCarro,
+                dica: "digite seu nome",
+                isPesquisa: true,
+                semIcone: true),
+            //   _buildTextField(controlerPesquisaCarro, "digite seu nome"),
             _buildTitulo("Veículos em destaque"),
             _buildRowVerMais(),
             SizedBox(
@@ -132,5 +141,14 @@ class _TelaHomeState extends State<TelaHome> {
     setState(() {
       campoFinal = controlerPesquisaCarro.text;
     });
+  }
+
+  void _abrirTelaEditarUsuario(BuildContext context) {
+    Navigator.pop(context);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => TelaEdicaoUsuario(),
+        ));
   }
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:rentcarapp_prof/views/TelaHome.dart';
 
+import 'testes/views/TelaBaseTeste.dart';
+
 void main() {
   runApp(const MyApp());
 }

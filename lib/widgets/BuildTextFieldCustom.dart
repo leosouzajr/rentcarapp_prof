@@ -1,18 +1,23 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class BuildTextFieldCustom extends StatefulWidget {
   final TextEditingController controlador;
   final String dica;
-  final String tipo;
+
+  final bool isPesquisa;
+  final bool semIcone;
   final IconData iconeFinal;
 
-  const BuildTextFieldCustom(
-      {super.key,
-      required this.controlador,
-      required this.dica,
-      required this.tipo,
-      this.iconeFinal = Icons.abc});
+  const BuildTextFieldCustom({
+    Key? key,
+    required this.controlador,
+    required this.dica,
+    required this.isPesquisa,
+    required this.semIcone,
+    this.iconeFinal = Icons.abc,
+  }) : super(key: key);
 
   @override
   State<BuildTextFieldCustom> createState() => _BuildTextFieldCustomState();
@@ -27,8 +32,8 @@ class _BuildTextFieldCustomState extends State<BuildTextFieldCustom> {
       child: TextField(
           controller: widget.controlador,
           decoration: InputDecoration(
-              prefixIcon: widget.tipo == "pesquisa" ? Icon(Icons.search) : null,
-              suffixIcon: widget.tipo == "normal"
+              prefixIcon: widget.isPesquisa ? Icon(Icons.search) : null,
+              suffixIcon: !widget.semIcone
                   ? widget.iconeFinal == Icons.calendar_month_outlined
                       ? GestureDetector(
                           child: Icon(
@@ -46,13 +51,9 @@ class _BuildTextFieldCustomState extends State<BuildTextFieldCustom> {
                   : null,
               fillColor: Colors.white,
               filled: true,
+              label: Text(widget.dica),
               alignLabelWithHint: true,
-              hintText: widget.dica,
-              hintStyle: TextStyle(
-                color: Colors.grey,
-              ),
               border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
                   borderRadius: BorderRadius.all(Radius.circular(15))))),
     );
   }
