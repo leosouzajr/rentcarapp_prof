@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:rentcarapp_prof/widgets/BottonBarCustom.dart';
-import 'package:rentcarapp_prof/widgets/BuildTextFieldCustom.dart';
+
+import '../widgets/BuildTextFieldCustom.dart';
 
 class TelaHomeTeste extends StatefulWidget {
   const TelaHomeTeste({super.key});

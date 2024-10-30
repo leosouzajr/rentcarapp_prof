@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rentcarapp_prof/views/TelaAlugarTeste.dart';
-import 'package:rentcarapp_prof/views/TelaHomeTeste.dart';
-import 'package:rentcarapp_prof/views/TelaLIstaClientesTeste.dart';
-import 'package:rentcarapp_prof/widgets/BottonBarCustom.dart';
+
+import '../widgets/BottonBarCustom.dart';
+import 'TelaAlugarTeste.dart';
+import 'TelaHomeTeste.dart';
+import 'TelaLIstaClientesTeste.dart';
 
 class TelaBaseTeste extends StatefulWidget {
   const TelaBaseTeste({super.key});

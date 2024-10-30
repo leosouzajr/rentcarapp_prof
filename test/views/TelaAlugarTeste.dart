@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:rentcarapp_prof/widgets/BuildTextFieldCustom.dart';
-import 'package:rentcarapp_prof/widgets/CustomDropDownMenu.dart';
+
+import '../widgets/BuildTextFieldCustom.dart';
+import '../widgets/CustomDropDownMenu.dart';
 
 class TelaAlugarTeste extends StatefulWidget {
   const TelaAlugarTeste({super.key});
