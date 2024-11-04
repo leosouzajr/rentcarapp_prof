@@ -160,7 +160,6 @@ class _TelaHomeState extends State<TelaHome> {
   }
 
   void _abrirTelaEditarUsuario(BuildContext context) {
-    Navigator.pop(context);
     Navigator.push(
         context,
         MaterialPageRoute(
